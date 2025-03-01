@@ -1,0 +1,757 @@
+{
+	"info": {
+		"_postman_id": "a5e7b8c9-d0e1-4f23-a6b7-c8d9e0f1a2b3",
+		"name": "TrendScript API",
+		"description": "API collection for TrendScript AI - Content generation based on trending topics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"description": "Endpoints for user registration, login, and logout",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "Register a new user in the system"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Login and get an authentication token"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						},
+						"description": "Get the authenticated user's details"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						},
+						"description": "Logout and invalidate the current token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Profile",
+			"description": "Endpoints for managing user profiles",
+			"item": [
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Name\",\n    \"avatar\": \"https://example.com/avatar.jpg\",\n    \"bio\": \"Content creator specializing in tech tutorials\",\n    \"preferred_niches\": [\"tech\", \"gaming\", \"education\"],\n    \"content_preferences\": {\n        \"tone\": \"professional\",\n        \"style\": \"informative\"\n    },\n    \"timezone\": \"America/New_York\",\n    \"language\": \"en\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						},
+						"description": "Update the user's profile information"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"description": "Endpoints for managing subscriptions",
+			"item": [
+				{
+					"name": "Get Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/subscription",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"subscription"
+							]
+						},
+						"description": "Get the user's current subscription details"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_method\": \"pm_card_visa\",\n    \"price_id\": \"price_1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/subscription/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"create"
+							]
+						},
+						"description": "Create a new subscription for the user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price_id\": \"price_0987654321\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/subscription/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"update"
+							]
+						},
+						"description": "Update the user's existing subscription"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/subscription/cancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"cancel"
+							]
+						},
+						"description": "Cancel the user's subscription"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/subscription/invoices",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"invoices"
+							]
+						},
+						"description": "Get the user's subscription invoices"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Content",
+			"description": "Endpoints for managing content",
+			"item": [
+				{
+					"name": "Generate Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"trend_id\": 1,\n    \"title\": \"How to Master the Latest Tech Trends\",\n    \"description\": \"A comprehensive guide to understanding and implementing the latest technology trends\",\n    \"content_type\": \"video_script\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/content/generate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"generate"
+							]
+						},
+						"description": "Generate new content based on a trending topic"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/content?status=active",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"content"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "active",
+									"description": "Filter by status (active or archived)"
+								}
+							]
+						},
+						"description": "Get all content for the authenticated user"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Content by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/content/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"1"
+							]
+						},
+						"description": "Get a specific content by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Title: Mastering Tech Trends\",\n    \"description\": \"An updated guide to understanding and implementing the latest technology trends\",\n    \"script_structure\": {\n        \"introduction\": \"Welcome to this comprehensive guide on mastering the latest tech trends. In this video, we'll explore the most important developments in technology and how you can leverage them.\",\n        \"main_points\": {\n            \"point_1\": \"First, let's talk about artificial intelligence and machine learning. These technologies are revolutionizing every industry from healthcare to finance.\",\n            \"point_2\": \"Next, we'll explore blockchain technology beyond cryptocurrencies. Blockchain has applications in supply chain, voting systems, and more.\",\n            \"point_3\": \"Finally, we'll discuss the Internet of Things (IoT) and how connected devices are creating smarter homes, cities, and workplaces.\"\n        },\n        \"conclusion\": \"By understanding these key tech trends, you'll be better positioned to adapt to the changing technological landscape and leverage these innovations in your personal and professional life.\",\n        \"call_to_action\": \"If you found this video helpful, please like, subscribe, and share with others who might benefit. Drop your questions in the comments below!\"\n    },\n    \"seo_data\": {\n        \"keywords\": [\"tech trends\", \"technology guide\", \"AI\", \"blockchain\", \"IoT\", \"digital transformation\"],\n        \"meta_description\": \"Learn how to master the latest technology trends including AI, blockchain, and IoT in this comprehensive guide.\",\n        \"tags\": [\"technology\", \"tech trends\", \"digital transformation\", \"AI\", \"blockchain\", \"IoT\"]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/content/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"1"
+							]
+						},
+						"description": "Update an existing content"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/content/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"content",
+								"1"
+							]
+						},
+						"description": "Delete or archive content (archives for free users, deletes for premium users)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trends",
+			"description": "Endpoints for fetching trending topics",
+			"item": [
+				{
+					"name": "Get All Trends",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/trends?limit=10&sort=popularity",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"trends"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of trends to return"
+								},
+								{
+									"key": "sort",
+									"value": "popularity",
+									"description": "Sort by popularity or recent"
+								}
+							]
+						},
+						"description": "Get all trending topics, optionally filtered by user preferences"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trends by Niche",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/trends/tech?limit=10&sort=popularity",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"trends",
+								"tech"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of trends to return"
+								},
+								{
+									"key": "sort",
+									"value": "popularity",
+									"description": "Sort by popularity or recent"
+								}
+							]
+						},
+						"description": "Get trending topics for a specific niche"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Auto-capture the auth token from login response",
+					"if (pm.response.code === 200 && pm.request.url.toString().includes('/api/login')) {",
+					"    const responseJson = pm.response.json();",
+					"    if (responseJson.token) {",
+					"        pm.environment.set('auth_token', responseJson.token);",
+					"        console.log('Auth token saved to environment variable');",
+					"    }",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

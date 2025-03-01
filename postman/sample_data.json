@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "name": "Test User",
+      "email": "test@example.com",
+      "password": "password123",
+      "password_confirmation": "password123"
+    },
+    {
+      "name": "Premium User",
+      "email": "premium@example.com",
+      "password": "password123",
+      "password_confirmation": "password123"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "Content Creator",
+      "avatar": "https://example.com/avatar.jpg",
+      "bio": "Professional content creator specializing in tech tutorials and gaming reviews",
+      "preferred_niches": ["tech", "gaming", "education"],
+      "content_preferences": {
+        "tone": "professional",
+        "style": "informative"
+      },
+      "timezone": "America/New_York",
+      "language": "en"
+    }
+  ],
+  "trends": [
+    {
+      "id": 1,
+      "title": "Artificial Intelligence in Healthcare",
+      "description": "The growing use of AI in medical diagnostics and treatment planning",
+      "source": "google_trends",
+      "niche": "tech",
+      "popularity_score": 95,
+      "related_keywords": ["AI diagnostics", "machine learning healthcare", "medical AI"],
+      "metadata": {
+        "search_volume": 250000,
+        "growth_percentage": 35
+      }
+    },
+    {
+      "id": 2,
+      "title": "Sustainable Fashion",
+      "description": "Eco-friendly clothing brands and sustainable fashion practices",
+      "source": "youtube",
+      "niche": "lifestyle",
+      "popularity_score": 87,
+      "related_keywords": ["eco fashion", "sustainable clothing", "ethical fashion"],
+      "metadata": {
+        "video_count": 15000,
+        "average_views": 120000
+      }
+    },
+    {
+      "id": 3,
+      "title": "Home Workout Routines",
+      "description": "Effective exercise routines that can be done at home with minimal equipment",
+      "source": "google_trends",
+      "niche": "fitness",
+      "popularity_score": 92,
+      "related_keywords": ["no equipment workout", "home fitness", "bodyweight exercises"],
+      "metadata": {
+        "search_volume": 320000,
+        "growth_percentage": 28
+      }
+    },
+    {
+      "id": 4,
+      "title": "Cryptocurrency Investments",
+      "description": "Strategies for investing in Bitcoin and other cryptocurrencies",
+      "source": "youtube",
+      "niche": "finance",
+      "popularity_score": 89,
+      "related_keywords": ["bitcoin investing", "crypto portfolio", "ethereum"],
+      "metadata": {
+        "video_count": 22000,
+        "average_views": 85000
+      }
+    },
+    {
+      "id": 5,
+      "title": "Plant-Based Cooking",
+      "description": "Vegan and vegetarian recipes and cooking techniques",
+      "source": "google_trends",
+      "niche": "food",
+      "popularity_score": 84,
+      "related_keywords": ["vegan recipes", "plant-based diet", "vegetarian cooking"],
+      "metadata": {
+        "search_volume": 180000,
+        "growth_percentage": 22
+      }
+    }
+  ],
+  "content_samples": [
+    {
+      "title": "How AI is Revolutionizing Healthcare: A Complete Guide",
+      "description": "Explore the transformative impact of artificial intelligence on modern healthcare systems",
+      "trend_id": 1,
+      "content_type": "blog_post",
+      "script_structure": {
+        "introduction": "Artificial intelligence is transforming healthcare in ways we could only imagine a decade ago. From diagnostic tools to treatment planning and drug discovery, AI is becoming an indispensable tool for medical professionals worldwide.",
+        "main_points": {
+          "point_1": "AI-powered diagnostic tools are achieving accuracy rates that match or exceed those of experienced physicians, particularly in radiology and pathology. These systems can analyze medical images to detect patterns that might be missed by the human eye.",
+          "point_2": "Predictive analytics using machine learning can forecast patient deterioration before traditional warning signs appear, allowing for earlier intervention and potentially saving lives in critical care settings.",
+          "point_3": "Drug discovery has been accelerated through AI systems that can analyze molecular structures and predict how compounds might interact with specific disease targets, reducing the time and cost of bringing new medications to market."
+        },
+        "conclusion": "As AI technology continues to evolve, we can expect even more revolutionary applications in healthcare. While challenges remain regarding regulation, ethics, and integration with existing systems, the potential benefits for patient outcomes and healthcare efficiency are enormous.",
+        "call_to_action": "Stay informed about these technological developments as they may soon impact your own healthcare experiences. Consider discussing AI-based options with your healthcare provider when appropriate."
+      },
+      "seo_data": {
+        "keywords": ["AI in healthcare", "medical artificial intelligence", "healthcare technology", "AI diagnostics", "machine learning medicine"],
+        "meta_description": "Discover how artificial intelligence is transforming healthcare through improved diagnostics, predictive analytics, and accelerated drug discovery.",
+        "tags": ["healthcare", "technology", "artificial intelligence", "medical innovation", "digital health"]
+      }
+    },
+    {
+      "title": "The Ultimate Guide to Sustainable Fashion in 2023",
+      "description": "Learn how to build an eco-friendly wardrobe without sacrificing style",
+      "trend_id": 2,
+      "content_type": "video_script",
+      "script_structure": {
+        "introduction": "Welcome to this comprehensive guide on sustainable fashion! Today, we're exploring how you can make environmentally conscious clothing choices while still looking amazing. The fashion industry is one of the world's largest polluters, but you have the power to make a difference with your purchasing decisions.",
+        "main_points": {
+          "point_1": "Let's start by understanding what makes fashion sustainable. We'll explore key certifications like GOTS and Fair Trade, materials that have lower environmental impacts, and production methods that conserve resources and minimize pollution.",
+          "point_2": "Next, we'll look at 10 sustainable fashion brands that are leading the industry in eco-friendly practices while offering stylish options for every budget. From affordable basics to luxury statement pieces, there are sustainable options for everyone.",
+          "point_3": "Finally, I'll share practical tips for transitioning to a more sustainable wardrobe, including the 30-wear test, clothing care techniques that extend garment life, and how to responsibly dispose of items you no longer need."
+        },
+        "conclusion": "Building a sustainable wardrobe is a journey, not an overnight transformation. By making more conscious choices and supporting brands that prioritize people and the planet, you're contributing to necessary change in the fashion industry.",
+        "call_to_action": "If you found this guide helpful, please give it a thumbs up and subscribe for more content on sustainable living. Share your favorite eco-friendly fashion brands in the comments below!"
+      },
+      "seo_data": {
+        "keywords": ["sustainable fashion", "eco-friendly clothing", "ethical fashion brands", "green fashion", "environmentally conscious style"],
+        "meta_description": "Discover the best sustainable fashion brands and learn practical tips for building an eco-friendly wardrobe without compromising on style.",
+        "tags": ["fashion", "sustainability", "ethical brands", "eco-friendly", "conscious consumer"]
+      }
+    }
+  ]
+}
